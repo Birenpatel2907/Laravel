@@ -74,9 +74,9 @@ class userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function edit(string $id)
+     public function edituser(string $id)
     {
-		
+		//$data=user::find($id);
 		$data=user::where('id','=',$id)->first();
         return view('backend.edituser',['data'=>$data]);
     }
@@ -94,6 +94,8 @@ class userController extends Controller
 		$data->name=$request->name;
 		$data->passnum=$request->passnum;
 		$data->email=$request->email;
+		$data->pass=$request->pass;
+		$data->mobile=$request->mobile;
 		$data->gen=$request->gen;
 		$data->lag=implode(",",$request->lag);
 		

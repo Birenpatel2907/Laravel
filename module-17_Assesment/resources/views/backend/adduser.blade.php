@@ -91,19 +91,19 @@
                  
                
       <!-- jQuery -->
-      <script src="backend/assets/js/jquery.min.js"></script>
-      <script src="backend/assets/js/popper.min.js"></script>
-      <script src="backend/assets/js/bootstrap.min.js"></script>
+      <script src="{{url('backend/assets/js/jquery.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/popper.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/bootstrap.min.js')}}"></script>
       <!-- wow animation -->
-      <script src="backend/assets/js/animate.js"></script>
+      <script src="{{url('backend/assets/js/animate.js')}}"></script>
       <!-- select country -->
-      <script src="backend/assets/js/bootstrap-select.js"></script>
+      <script src="{{url('backend/assets/js/bootstrap-select.js')}}"></script>
       <!-- nice scrollbar -->
-      <script src="backend/assets/js/perfect-scrollbar.min.js"></script>
+      <script src="{{url('backend/assets/js/perfect-scrollbar.min.js')}}"></script>
       <script>
          var ps = new PerfectScrollbar('#sidebar');
       </script>
       <!-- custom js -->
-      <script src="backend/assets/js/custom.js"></script>
+      <script src="{{url('backend/assets/js/custom.js')}}"></script>
 
 @endsection

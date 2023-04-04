@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 //-----controller path load------------//
 use App\Http\Controllers\adminController;    
 use App\Http\Controllers\userController; 
-
+use App\Http\Controllers\contactController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ Route::get('/adduser',[userController::class,'index']); //add user
 Route::post('/addusercheck',[userController::class,'store']);  
 Route::get('/manageuser',[userController::class,'manageuser']); //view user
 Route::get('/manageuser/{id}',[userController::class,'destroy']);
-Route::get('/edituser/{id}',[userController::class,'edit']);  //Edit user
+Route::get('/useredit/{id}',[userController::class,'edituser']);  //Edit user
 Route::post('/update/{id}',[userController::class,'update']);   //Update user
 
 

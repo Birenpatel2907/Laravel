@@ -39,7 +39,7 @@
 											<td>{{$d->lag}}</td>
 											<td>{{$d->mobile}}</td>
                                             <td>
-												<a href="{{url('edituser/'.$d->id)}}" class="btn btn-primary">Edit</a>
+												<a href="{{url('useredit/'.$d->id)}}" class="btn btn-primary">Edit</a>
 												<a href="{{url('manageuser/'.$d->id)}}" class="btn btn-danger">Delete</a>
 											</td>
                                         

@@ -26,21 +26,21 @@ else
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- site icon -->
-      <link rel="icon" href="backend/assets/images/fevicon.png" type="image/png" />
+      <link rel="icon" href="{{url('backend/assets/images/fevicon.png')}}" type="image/png" />
       <!-- bootstrap css -->
-      <link rel="stylesheet" href="backend/assets/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/bootstrap.min.css')}}" />
       <!-- site css -->
-      <link rel="stylesheet" href="backend/assets/style.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/style.css')}}" />
       <!-- responsive css -->
-      <link rel="stylesheet" href="backend/assets/css/responsive.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/responsive.css')}}" />
       <!-- color css -->
-      <link rel="stylesheet" href="backend/assets/css/colors.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/colors.css')}}" />
       <!-- select bootstrap -->
-      <link rel="stylesheet" href="backend/assets/css/bootstrap-select.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/bootstrap-select.css')}}" />
       <!-- scrollbar css -->
-      <link rel="stylesheet" href="backend/assets/css/perfect-scrollbar.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/perfect-scrollbar.css')}}" />
       <!-- custom css -->
-      <link rel="stylesheet" href="backend/assets/css/custom.css" />
+      <link rel="stylesheet" href="{{url('backend/assets/css/custom.css')}}" />
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -55,13 +55,13 @@ else
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
                      <div class="logo_section">
-                        <a href="index"><img class="logo_icon img-responsive" src="backend/assets/images/logo/logo_icon.png" alt="#" /></a>
+                        <a href="index"><img class="logo_icon img-responsive" src="{{url('backend/assets/images/logo/logo_icon.png')}}" alt="#" /></a>
                      </div>
                   </div>
                   <div class="sidebar_user_info">
                      <div class="icon_setting"></div>
                      <div class="user_profle_side">
-                        <div class="user_img"><img class="img-responsive" src="backend/assets/images/layout_img/user_img.jpg" alt="#" /></div>
+                        <div class="user_img"><img class="img-responsive" src="{{url('backend/assets/images/layout_img/user_img.jpg')}}" alt="#" /></div>
                         <div class="user_info">
                            <h6>{{session('name')}}</h6>
                            <p><span class="online_animation"></span> Online</p>
@@ -75,8 +75,7 @@ else
                      <li class="active">
                         <a href="dashboard"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                      </li>
-
-                  
+				
                      <li class="">
                         <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Passport</span></a>
                         <ul class="collapse list-unstyled" id="additional_page">
@@ -103,7 +102,7 @@ else
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                         <div class="logo_section">
-                           <a href="index" class="top" style="color: white; font-weight: bold; font-size:25px;"><img class="img-responsive" src="backend/assets/images/logo/logo.png" alt="#" />ADMIN PANEL</a>
+                           <a href="index" class="top" style="color: white; font-weight: bold; font-size:25px;"><img class="img-responsive" src="{{url('backend/assets/images/logo/logo.png')}}" alt="#" />ADMIN PANEL</a>
                         </div>
                         <div class="right_topbar">
                            <div class="icon_info">
@@ -114,7 +113,7 @@ else
                               </ul>
                               <ul class="user_profile_dd">
                                  <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="backend/assets/images/layout_img/user_img.jpg" alt="#" /><span class="name_user">{{session('name')}}</span></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{url('backend/assets/images/layout_img/user_img.jpg')}}" alt="#" /><span class="name_user">{{session('name')}}</span></a>
                                     <div class="dropdown-menu">
                                        
                                        <a class="dropdown-item" href="{{url('/adminlogout')}}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
