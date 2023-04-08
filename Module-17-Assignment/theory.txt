@@ -1,0 +1,48 @@
+
+
+//========================Laravel===================================//
+
+
+1.         How to remove route caching?
+
+Ans.        To cache your routes again, simply run the following command: 
+	$ php artisan  route:cache  Route cache cleared! Routes cached successfully! Again, running 
+	the above command alone is enough to clear your previous route cache and rebuild a new 
+	one.
+
+2.      Create custom auto using middleware. 
+
+Ans.      Step 1- create AdminAccess mddleware
+		php artisan make:middleware AdminAccess 
+		
+	  Step 2 Register middleware in kernal.php
+
+		app/Http/kernal.php
+		<?php
+ 
+		namespace App\Http;
+ 
+		use Illuminate\Foundation\Http\Kernel as HttpKernel;
+ 
+
+		    protected $routeMiddleware = [
+        	'adminAccess' => \App\Http\Middleware\AdminAccess::class,
+    		];
+		}
+   	 Step 3 add route	
+                  Route::group(['middleware'=>[''adminAccess']],function()
+{ 
+				Route::get('/admin', function () {
+  
+					  return view('backend.admin');
+				
+});
+			});	
+
+
+3.     Generate Resource Controller for employee.
+
+Ans.     This is the easy part. From the command line in the root directory of your Laravel project, 
+         type: php artisan make:controller employeeController --resource 
+        This will create our resource controller with all the methods we need.
+
