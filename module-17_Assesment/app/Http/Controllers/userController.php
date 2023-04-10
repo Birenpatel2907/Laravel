@@ -31,7 +31,19 @@ class userController extends Controller
     public function manageuser()
     {
          $data=user::all();  	//view user
-		 return view('backend.manageuser',['data'=>$data]);
+		 return response()->json([
+	   'status'=>200,
+	   'User'=>$data
+	   ]);
+    }
+	
+	public function singleuser($id)
+    {
+         $data=user::find($id);  	//view single user
+		 return response()->json([
+	   'status'=>200,
+	   'User'=>$data
+	   ]);
     }
 
     /**
@@ -46,34 +58,23 @@ class userController extends Controller
 		$data->name=$request->name;
 		$data->passnum=$request->passnum;
 		$data->email=$request->email;
-		$data->pass=$request->pass;
+		//$data->pass=$request->pass;
 		$data->pass=Hash::make($request->pass);
-		$data->mobile=$request->mobile;
 		$data->gen=$request->gen;
-		$data->lag=implode(",",$request->lag);
-	
+		$data->lag=$request->lag;
+		$data->mobile=$request->mobile;
+		
+		
 		$data->save();
-		Alert::success('Congrats', 'You\'ve Successfully Register');
-		return redirect('/dashboard');
+		
+		return response()->json([
+			'status'=>200,
+			
+			'message'=>"Register Success"
+			]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
      public function edituser(string $id)
     {
 		//$data=user::find($id);
@@ -94,14 +95,15 @@ class userController extends Controller
 		$data->name=$request->name;
 		$data->passnum=$request->passnum;
 		$data->email=$request->email;
-		$data->pass=$request->pass;
 		$data->mobile=$request->mobile;
 		$data->gen=$request->gen;
-		$data->lag=implode(",",$request->lag);
+		$data->lag=$request->lag;
 		
-		$data->save();
-		Alert::success('Congrats', 'You\'ve Successfully Update');
-		return redirect('/manageuser');
+		$data->update();
+		return response()->json([
+			'status'=>200,
+			'message'=>"Update Success"
+			]);
     }
 
     /**
@@ -114,7 +116,41 @@ class userController extends Controller
     {
          $data=user::find($id); // delete user
 		 $data->delete();
-		 Alert::success('Congrats', 'You\'ve Successfully Delete');
-		 return redirect('/manageuser');
+		 return response()->json([
+		'status'=>200,
+		'msg'=>"Delete Success"
+		]);
+    }
+	
+	public function login(Request $request)
+    {
+		$email=$request->email;
+		$pass=$request->pass;
+		
+		$data=user::where('email','=',$email)->first();
+		if($data)
+		{
+			if(Hash::check($pass,$data->pass))
+			{    
+					return response()->json([
+					'status'=>200,
+					'msg'=>"User Login Success",
+					]);
+			}
+			else
+			{
+				return response()->json([
+					'status'=>301,
+					'msg'=>"Login Failed, Wrong Password"
+					]);
+			}
+		}
+		else
+		{
+				return response()->json([
+					'status'=>301,
+					'msg'=>"Login Failed, Wrong Username"
+					]);
+		}
     }
 }
