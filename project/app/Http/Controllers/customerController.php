@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Models\customer;
 use App\Models\countrie;
+use App\Mail\welcomemail;
 
 use Hash;
 use Alert;
 use Session;
-
+use Mail;
+use paginate;
 class customerController extends Controller
 {
     /**
@@ -25,7 +27,7 @@ class customerController extends Controller
 
 	public function alldata()
     {
-	   $data=customer::all();  	
+	   $data=customer::paginate(3);  	
        return view('backend.manage_user',['data'=>$data]);
     }
 
@@ -43,9 +45,9 @@ class customerController extends Controller
     public function store(Request $request)
     {
          $data=new customer;
-		$data->name=$request->name;
-		$data->email=$request->email;
-		$data->pass=$request->pass;
+	$name=$data->name=$request->name;
+	$email=$data->email=$request->email;
+	$pass=$data->pass=$request->pass;
 		$data->pass=Hash::make($request->pass);
 		$data->gen=$request->gen;
 		$data->lag=implode(",",$request->lag);
@@ -59,6 +61,9 @@ class customerController extends Controller
 		$data->file=$filename; // name store in db
 		
 		$data->save();
+		
+		$emaildata=array("name"=>$name,"email"=>$email,"pass"=>$pass);
+		Mail::to($email)->send(new welcomemail($emaildata));
 		return redirect('/login');
 		
     }

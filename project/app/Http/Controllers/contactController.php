@@ -24,10 +24,12 @@ class contactController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+	  public function search(Request $request)
+		{
+			$name=$request->name;
+			$data['name']=contact::where('name','LIKE',$name.'%')->get();
+			return response()->json($data);	
+		}
 
     /**
      * Store a newly created resource in storage.

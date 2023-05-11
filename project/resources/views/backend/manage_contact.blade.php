@@ -19,9 +19,15 @@
                         <div class="panel-heading">
                             Manage Contact
                         </div>
+						<form method="post">
+							@csrf
+							<input type="search" name="name" id="name" class="form-control" placeholder="Search By Name">
+                        </form>    
+							<br>
+
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="table">
                                     <thead>
                                         <tr>
                                             <th>Contact ID</th>
@@ -78,7 +84,28 @@
             $('#dataTables-example').dataTable();
         });
     </script>
-
+	<script>
+		$('#name').on('keypress', function () {
+                var name = this.value;
+                $('#table').html('');
+                $.ajax({
+				url:"{{url('/search')}}",
+				type: "POST",
+				data: {
+                    name: name,
+				_token: '{{csrf_token()}}'
+				},
+				
+				success: function(result) {
+                        $('#table').html('');
+                        $.each(result.name, function (key, value) {
+                            $('#table').append('<tr> <td>' + value.id + '</td><td>' + value.name + '</td><td>' + value.email + '</td></tr>');
+                        });
+                        
+                    }
+                });
+            });
+	</script>
 </body>
 
 </html>

@@ -92,3 +92,4 @@ Route::get('/manage_user/{id}',[customerController::class,'destroy']);
 
 Route::get('/manage_contact',[contactController::class,'alldata']);
 Route::get('/manage_contact/{id}',[contactController::class,'destroy']);
+Route::post('/search',[contactController::class,'search']);  //Ajax search data

@@ -21,7 +21,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table  table-bordered table-hover" id="">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -48,15 +48,14 @@
 												<a href="#" class="btn btn-primary">Edit</a>
 												<a href="{{url('manage_user/'.$d->id)}}" class="btn btn-danger">Delete</a>
 												<a href="#" class="btn btn-success">{{$d->status}}</a>
-											</td>
-                                        
-                                            
+											</td>  
                                         </tr>
-                                    @endforeach    
+                                    @endforeach   
                                     </tbody>
+										
                                 </table>
                             </div>
-                            
+                            {{$data->links()}}	
                         </div>
                     </div>
                     <!--End Advanced Tables -->
