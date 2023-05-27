@@ -1,352 +1,231 @@
-<?php
-if(session()->has('id'))
-{
-	
-}
-else
-{
-	echo "<script>
-		window.location='/admin';
-	</script>";
-}
-?>
 
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
-    <!-- Core CSS - Include with every page -->
-    <link href="{{url('backend/assets/plugins/bootstrap/bootstrap.css')}}" rel="stylesheet" />
-    <link href="{{url('backend/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
-    <link href="{{url('backend/assets/plugins/pace/pace-theme-big-counter.css')}}" rel="stylesheet" />
-    <link href="{{url('backend/assets/css/style.css')}}" rel="stylesheet" />
-    <link href="{{url('backend/assets/css/main-style.css')}}" rel="stylesheet" />
-    <!-- Page-Level CSS -->
-    <link href="{{url('backend/assets/plugins/morris/morris-0.4.3.min.css')}}" rel="stylesheet" />
+<html lang="en">
+   <head>
+      <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Footwear Admin Panel</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="{{url('backend/assets/images/fevicon.png')}}" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{{url('backend/assets/css/bootstrap.min.css')}}" />
+      <!-- site css -->
+      <link rel="stylesheet" href="{{url('backend/assets/style.css')}}" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="{{url('backend/assets/css/responsive.css')}}" />
+      <!-- color css -->
+      <link rel="stylesheet" href="{{url('backend/assets/css/colors.css')}}" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="{{url('backend/assets/css/bootstrap-select.css')}}" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="{{url('backend/assets/css/perfect-scrollbar.css')}}" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="{{url('backend/assets/css/custom.css')}}" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+
+
    </head>
-<body>
- @include('sweetalert::alert')
-    <!--  wrapper -->
-    <div id="wrapper">
-        <!-- navbar top -->
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
-            <!-- navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{url('/dashboard')}}">
-                    <img src="{{url('backend/assets/img/logo.png')}}" alt="" />
-                </a>
-            </div>
-            <!-- end navbar-header -->
-            <!-- navbar-top-links -->
-            <ul class="nav navbar-top-links navbar-right">
-                <!-- main dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-danger">3</span><i class="fa fa-envelope fa-3x"></i>
-                    </a>
-                    <!-- dropdown-messages -->
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong><span class=" label label-danger">Andrew Smith</span></strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong><span class=" label label-info">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong><span class=" label label-success">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- end dropdown-messages -->
-                </li>
+   <body class="dashboard dashboard_1">
+@include('sweetalert::alert')
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-success">4</span>  <i class="fa fa-tasks fa-3x"></i>
-                    </a>
-                    <!-- dropdown tasks -->
-                    <ul class="dropdown-menu dropdown-tasks">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 1</strong>
-                                        <span class="pull-right text-muted">40% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">20% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                            <span class="sr-only">20% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 4</strong>
-                                        <span class="pull-right text-muted">80% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Tasks</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- end dropdown-tasks -->
-                </li>
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i>
-                    </a>
-                    <!-- dropdown alerts-->
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i>New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i>Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i>New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- end dropdown-alerts -->
-                </li>
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-3x"></i>
-                    </a>
-                    <!-- dropdown user-->
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="{{url('/adminlogout')}}"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
-                        </li>
-                    </ul>
-                    <!-- end dropdown-user -->
-                </li>
-                <!-- end main dropdown -->
-            </ul>
-            <!-- end navbar-top-links -->
-
-        </nav>
-        <!-- end navbar top -->
-
-        <!-- navbar side -->
-        <nav class="navbar-default navbar-static-side" role="navigation">
-            <!-- sidebar-collapse -->
-            <div class="sidebar-collapse">
-                <!-- side-menu -->
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <!-- user image section-->
-                        <div class="user-section">
-                            <div class="user-section-inner">
-                                <img src="{{url('backend/assets/img/user.jpg')}}" alt="">
-                            </div>
-                            <div class="user-info">
-                                <div>{{session('anm')}} <strong>{{session('id')}}</strong></div>
-                                <div class="user-text-online">
-                                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
-                                </div>
-                            </div>
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="{{url('index')}}"><img class="logo_icon img-responsive" src="backend/assets/images/logo/logo_icon.png" alt="#" /></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="{{url('backend/assets/images/layout_img/user_img.jpg')}}" alt="#" /></div>
+                        <div class="user_info">
+                           <h6>{{session('aname')}}</h6>
+                           <p><span class="online_animation"></span> Online</p>
                         </div>
-                        <!--end user image section-->
-                    </li>
-                    <li class="sidebar-search">
-                        <!-- search section-->
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>Tables & Dashboard</h4>
+                  <ul class="list-unstyled components">
+                     <li class="active">
+                        <a href="{{url('dashboard')}}"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                     </li>
+
+                  
+                     <li class="">
+                        <a href="#products" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Products</span></a>
+                        <ul class="collapse list-unstyled" id="products">
+                           <li>
+                              <a href="{{url('/add_products')}}">> <span>Add Products</span></a>
+                           </li>
+                           <li>
+                              <a href="{{url('manage_products')}}">> <span>Manage Products</span></a>
+                           </li>
+                           
+                        </ul>
+                     </li>                    
+                     <li class="">
+                        <a href="#types" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Types</span></a>
+                        <ul class="collapse list-unstyled" id="types">
+                           <li>
+                              <a href="{{url('/add_types')}}">> <span>Add Types</span></a>
+                           </li>
+                           <li>
+                              <a href="{{url('/manage_types')}}">> <span>Manage Types</span></a>
+                           </li>
+                           
+                        </ul>
+                     </li>
+                     <li class="">
+                        <a href="#brands" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Brands</span></a>
+                        <ul class="collapse list-unstyled" id="brands">
+                           <li>
+                              <a href="{{url('/add_brands')}}">> <span>Add Brands</span></a>
+                           </li>
+                           <li>
+                              <a href="{{url('manage_brands')}}">> <span>Manage Brands</span></a>
+                           </li>  
+                        </ul>
+                     </li>
+                     <li class="">
+                        <a href="#sizes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Size</span></a>
+                        <ul class="collapse list-unstyled" id="sizes">
+                           <li>
+                              <a href="{{url('/add_sizes')}}">> <span>Add Sizes</span></a>
+                           </li>
+                           <li>
+                              <a href="{{url('manage_sizes')}}">> <span>Manage Sizes</span></a>
+                           </li>  
+                        </ul>
+                     </li>
+                     <li class="">
+                        <a href="#colors" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Colors</span></a>
+                        <ul class="collapse list-unstyled" id="colors">
+                           <li>
+                              <a href="{{url('/add_colors')}}">> <span>Add Colors</span></a>
+                           </li>
+                           <li>
+                              <a href="{{url('/manage_colors')}}">> <span>Manage Colors</span></a>
+                           </li>  
+                        </ul>
+                     </li>
+                     <li class="">
+                        <a href="#users" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Users</span></a>
+                        <ul class="collapse list-unstyled" id="users">
+                           <li>
+                              <a href="{{url('manage_users')}}">> <span>Manage Users</span></a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li class="">
+                        <a href="#feedbacks" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>feedbacks</span></a>
+                        <ul class="collapse list-unstyled" id="feedbacks">
+                           <li>
+                              <a href="{{url('manage_feedbacks')}}">> <span>Manage Feedbacks</span></a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li class="">
+                        <a href="#orders" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>Orders</span></a>
+                        <ul class="collapse list-unstyled" id="orders">
+                           <li>
+                              <a href="{{url('manage_orders')}}">> <span>view Orders</span></a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="logo_section">
+                           <a href="{{url('index')}}" class="top" style="color: white; font-weight: bold; font-size:25px;"><img class="img-responsive" src="backend/assets/images/logo/logo.png" alt="#" />ADMIN PANEL</a>
                         </div>
-                        <!--end search section-->
-                    </li>
-                    <li class="selected">
-                        <a href="{{url('/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Employee<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{url('/add_emp')}}">Add Employee</a>
-                            </li>
-                            <li>
-                                <a href="{{url('/manage_emp')}}">Manage Employee</a>
-                            </li>
-                        </ul>
-                        <!-- second-level-items -->
-                    </li>
-					
-					<li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Categories<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{url('/add_cat')}}">Add Categories</a>
-                            </li>
-                            <li>
-                                <a href="{{url('/manage_cat')}}">Manage Categories</a>
-                            </li>
-                        </ul>
-                        <!-- second-level-items -->
-                    </li>
-					<li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Location<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{url('/add_loc')}}">Add Location</a>
-                            </li>
-                            <li>
-                                <a href="{{url('/manage_loc')}}">Manage Location</a>
-                            </li>
-                        </ul>
-                        <!-- second-level-items -->
-                    </li>
-                     <li>
-                        <a href="{{url('/manage_user')}}"><i class="fa fa-flask fa-fw"></i>Manage User</a>
-                    </li>
-					 <li>
-                        <a href="{{url('/manage_contact')}}"><i class="fa fa-flask fa-fw"></i>Manage Contact</a>
-                    </li>
-                 
-                </ul>
-                <!-- end side-menu -->
-            </div>
-            <!-- end sidebar-collapse -->
-        </nav>
-        <!-- end navbar side -->
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              <ul>
+                                 <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                 <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                              </ul>
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="backend/assets/images/layout_img/user_img.jpg" alt="#" /><span class="name_user">{{session('aname')}}</span></a>
+                                    <div class="dropdown-menu">
+                                       <a class="dropdown-item" href="profile">My Profile</a>
+                                       <a class="dropdown-item" href="settings">Settings</a>
+                                       <a class="dropdown-item" href="help">Help</a>
+
+                                       <a class="dropdown-item" href="logout"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+
+                                    
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!-- end topbar -->
+
+  <!-- jQuery -->
+      <script src="{{url('backend/assets/js/jquery.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/popper.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/bootstrap.min.js')}}"></script>
+      <!-- wow animation -->
+      <script src="{{url('backend/assets/js/animate.js')}}"></script>
+      <!-- select country -->
+      <script src="{{url('backend/assets/js/bootstrap-select.js')}}"></script>
+      <!-- owl carousel -->
+      <script src="{{url('backend/assets/js/owl.carousel.js')}}"></script> 
+      <!-- chart js -->
+      <script src="{{url('backend/assets/js/Chart.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/Chart.bundle.min.js')}}"></script>
+      <script src="{{url('backend/assets/js/utils.js')}}"></script>
+      <script src="{{url('backend/assets/js/analyser.js')}}"></script>
+      <!-- nice scrollbar -->
+      <script src="{{url('backend/assets/js/perfect-scrollbar.min.js')}}"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="{{url('backend/assets/js/chart_custom_style1.js')}}"></script>
+      <script src="{{url('backend/assets/js/custom.js')}}"></script>
+
+
+
+   
+
+
+   </body>
+</html> 
